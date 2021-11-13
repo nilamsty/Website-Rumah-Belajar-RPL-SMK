@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <img src="{{ URL('img/users.png') }}" width="100px" alt="user">
+                <img src="{{ URL('img/login.png') }}" width="150px" alt="log in">
             </a>
         </x-slot>
 
@@ -10,9 +10,10 @@
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('login') }}">
+            <strong>Silakan Log In Jika Anda Sudah Memiliki Akun!!</strong><hr><br>
             @csrf
 
             <!-- Email Address -->
@@ -41,6 +42,10 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 mr-3" href="{{ route('register') }}">
+                    {{ __('Create Account?') }}
+                </a>
+
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}

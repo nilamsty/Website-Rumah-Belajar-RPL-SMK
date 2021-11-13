@@ -4,10 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Rumah Belajar RPL SMK</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
 
         <!-- Styles -->
         <style>
@@ -25,26 +29,49 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+
+    <body class="container bg-blue">
+        <div class="row">
+            <div class="col-md-5 py-3 mb-4">
+                    <img class="center" src="{{ URL('img/computer.png') }}" width="500px" alt="computer">
+            </div>
+            <div class="col-md-7 py-3">
+                <div class="mt-5">
+                    <h3 class="display-5 bold">HALO, SELAMAT DATANG...</h3>
+                    <h4 class="display-6 bold">WEBSITE RUMAH BELAJAR RPL SMK</h4><br>
+                    <h5>Kalian bingung mau belajar mengenai Rekayasa Perangkat Lunak SMK?</h5>
+                    <h5>Belajar di Website ini aja!!</h5><br>
+                    <h5>Website ini dilengkapi oleh banyak menu lho mulai dari akses materi, uji kompetensi, grup diskusi dan masih banyak lagi</h5>
+                    <h5>Yuk, Buruan langsung <strong>Register atau Log In</strong> yaa...</h5>
+
+                    <br>
+                    @if (Route::has('login'))
+                            @auth
+                            <button>
+                                <a href="{{ route('dashboard') }}" type="button" class="btn btn-outline-primary">Dashboard</a>
+                            </button>
+                            @else
+                            <button>
+                                <a href="{{ route('login') }}" type="button" class="btn btn-outline-primary">Log In</a>
+                            </button>
+        
+                                @if (Route::has('register'))  
+                                <button>
+                                    <a href="{{ route('register') }}" type="button" class="btn btn-outline-primary">Register</a>
+                                </button>                                  
+                                @endif
+                            @endauth
+                    @endif
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 center">
-                <img class="center" src="{{ URL('img/reading.png') }}" width="300px" alt="user">
-                <h1>SELAMAT DATANG DI RUMAH RPL SMK</h1>
             </div>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+
     </body>
 </html>

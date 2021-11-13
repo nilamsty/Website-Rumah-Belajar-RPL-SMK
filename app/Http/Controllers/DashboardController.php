@@ -19,25 +19,44 @@ class DashboardController extends Controller
         }
     }
 
-    public function profil()
+    public function materi()
     {
-        return view('user.profilsaya');
+        return view('user.materi');
     }
 
-    public function manajemenusers()
+    public function ujikom()
     {
-        return view('admin.manajemenusers');
+        return view('user.ujikom');
     }
 
-    public function manajemenmateri()
+    public function grupdis()
     {
-        return view('admin.manajemenmateri');
+        return view('user.grupdis');
     }
 
-    public function manajemenujikom()
+    public function testi()
     {
-        return view('admin.manajemenujikom');
+        return view('user.testi');
     }
 
+    public function datapengguna()
+    {
+        return view('admin.datapengguna');
+    }
+
+    public function tambahmateri()
+    {
+        return view('admin.tambahmateri');
+    }
+
+    public function buatujian()
+    {
+        return view('admin.buatujian');
+    }
+
+    public function datatesti()
+    {
+        return view('admin.datatesti');
+    }
 
 }

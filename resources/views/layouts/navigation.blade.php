@@ -1,39 +1,65 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="max-w-7xl mx-auto mt-5 px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-10">
             <div class="flex">
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-home">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
                 @if (Auth::user()->hasRole('user'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.profil')" :active="request()->routeIs('dashboard.profil')">
-                        {{ __('Profil Saya') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-book">
+                    <x-nav-link :href="route('dashboard.materi')" :active="request()->routeIs('dashboard.materi')">
+                        {{ __('Materi') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-tasks">
+                    <x-nav-link :href="route('dashboard.ujikom')" :active="request()->routeIs('dashboard.ujikom')">
+                        {{ __('Uji Kompetensi') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-comments">
+                    <x-nav-link :href="route('dashboard.grupdis')" :active="request()->routeIs('dashboard.grupdis')">
+                        {{ __('Grup Diskusi') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-star-half-alt">
+                    <x-nav-link :href="route('dashboard.testi')" :active="request()->routeIs('dashboard.testi')">
+                        {{ __('Testimoni') }}
+                    </x-nav-link>
+                </div>
+
+
                 @endif
 
                 @if (Auth::user()->hasRole('admin'))
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.manajemenusers')" :active="request()->routeIs('dashboard.manajemenusers')">
-                        {{ __('Manajemen Pengguna') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-user">
+                    <x-nav-link :href="route('dashboard.datapengguna')" :active="request()->routeIs('dashboard.datapengguna')">
+                        {{ __('Data Pengguna') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.manajemenmateri')" :active="request()->routeIs('dashboard.manajemenmateri')">
-                        {{ __('Manajemen Materi') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-book">
+                    <x-nav-link :href="route('dashboard.tambahmateri')" :active="request()->routeIs('dashboard.tambahmateri')">
+                        {{ __('Tambah Materi') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.manajemenujikom')" :active="request()->routeIs('dashboard.manajemenujikom')">
-                        {{ __('Manajemen Uji Kompetensi') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-tasks">
+                    <x-nav-link :href="route('dashboard.buatujian')" :active="request()->routeIs('dashboard.buatujian')">
+                        {{ __('Buat Ujian') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-star-half-alt">
+                    <x-nav-link :href="route('dashboard.datatesti')" :active="request()->routeIs('dashboard.datatesti')">
+                        {{ __('Data Testimoni') }}
                     </x-nav-link>
                 </div>
                 @endif
@@ -41,7 +67,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-6 fa">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -57,6 +83,10 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        <x-dropdown-link :href="route('profil')">
+                                {{ __('Profil Saya') }}
+                        </x-dropdown-link>
+
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -98,6 +128,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('profil')">
+                        {{ __('Profil Saya') }}
+                </x-responsive-nav-link>
+                
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

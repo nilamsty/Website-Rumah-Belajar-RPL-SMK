@@ -2,14 +2,15 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <img src="{{ URL('img/users.png') }}" width="100px" alt="user">
+                <img src="{{ URL('img/register.png') }}" width="150px" alt="register">
             </a>
         </x-slot>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
+            <strong>Silakan Registrasi Jika Anda Belum Memiliki Akun!!</strong><hr><br>
             @csrf
 
             <!-- Name -->
