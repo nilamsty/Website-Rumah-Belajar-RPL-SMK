@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');    
     Route::view('/dashboard/profilsaya', view:'profil')->name('profil');
     Route::put('/dashboard/profilsaya', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
-    //Route::put('/dashboard/profilsaya', action: )->name('dashboard.profil');
+    
 });
 
 //for users
@@ -33,7 +33,6 @@ Route::group(['middleware' => ['auth', 'role:user']], function()
     Route::get('/dashboard/ujikompetensi', [App\Http\Controllers\DashboardController::class, 'ujikom'])->name('dashboard.ujikom');     
     Route::get('/dashboard/grupdiskusi', [App\Http\Controllers\DashboardController::class, 'grupdis'])->name('dashboard.grupdis');
     Route::get('/dashboard/testimoni', [App\Http\Controllers\DashboardController::class, 'testi'])->name('dashboard.testi');
-    //Route::view('/dashboard/profilsaya', App\Http\Controllers\DashboardController@profil')->name('dashboard.profil');    
 });
 
 //for admin

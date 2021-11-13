@@ -17,6 +17,6 @@ class ProfilController extends Controller
             ]);
         }
 
-        return redirect()->route('profil')->with('message', 'Profile saved successfully');
+        return redirect()->route('profil')->with('message', 'Data Profil Berhasil Diperbarui.');
     }    
 }
