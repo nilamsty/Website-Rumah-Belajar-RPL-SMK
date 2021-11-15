@@ -38,7 +38,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function()
 //for admin
 Route::group(['middleware' => ['auth', 'role:admin']], function()
 {
-    Route::get('/dashboard/datapengguna', [App\Http\Controllers\DashboardController::class, 'datapengguna'])->name('dashboard.datapengguna');
+    Route::get('/datapengguna', [App\Http\Controllers\UserController::class, 'index'])->name('datapengguna');
+    Route::get('/datapengguna/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('datapengguna.hapus');
     Route::get('/materi/manajemenmateri', [App\Http\Controllers\MateriController::class, 'index'])->name('dashboard.manajemenmateri');
     Route::get('/materi/tambahmateri', [App\Http\Controllers\MateriController::class, 'create'])->name('materi.tambahmateri');
     Route::post('/materi/simpanmateri', [App\Http\Controllers\MateriController::class, 'store'])->name('materi.simpanmateri');

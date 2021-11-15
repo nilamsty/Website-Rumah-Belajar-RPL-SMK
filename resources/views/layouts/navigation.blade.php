@@ -40,7 +40,7 @@
 
                 @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-user">
-                    <x-nav-link :href="route('dashboard.datapengguna')" :active="request()->routeIs('dashboard.datapengguna')">
+                    <x-nav-link :href="route('datapengguna')" :active="request()->routeIs('datapengguna')">
                         {{ __('Data Pengguna') }}
                     </x-nav-link>
                 </div>

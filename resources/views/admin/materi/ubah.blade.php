@@ -37,7 +37,7 @@
                             <textarea class="form-control" rows="4" name="content">{{old('content', $materis->content)}}</textarea>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
 
                         <div class="flex items-center justify-end mt-4">
                             <a class="underline text-sm text-gray-600 hover:text-gray-900 mr-3" href="{{ route('dashboard.manajemenmateri') }}">

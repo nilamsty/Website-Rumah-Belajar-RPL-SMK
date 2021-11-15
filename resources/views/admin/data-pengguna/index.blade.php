@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manajemen Materi Rumah Belajar RPL SMK') }}
+            {{ __('Manajemen Data Pengguna Rumah Belajar RPL SMK') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <p><a class="btn btn-primary" href="{{route('materi.tambahmateri')}}">Tambah Materi</a></p>
+                    
+
                     @if (Session::has('success'))
                         <div class="alert alert-success" role="alert">
                             {{Session::get('success')}}
@@ -19,27 +20,22 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Judul Materi</th>
-                                <th scope="col">Bab</th>
-                                <th scope="col">Materi</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <body>
-                            @foreach ($materis as $index=>$materi)
+                            @foreach ($users as $index=>$user)
                             <tr>
                                 <td scope="row">{{$index+1}}</td>
-                                <td scope="row"><a href="{{route('materi.detailmateri', $materi->id)}}">{{$materi->title}}</td>
-                                <td scope="row">{{$materi->bab->name}}</td>
-                                <td scope="row">{{Str::limit($materi->content), 115}}</td>
-                                <td scope="row"><a class="btn btn-success fa fa-edit" href="{{route('materi.ubahmateri', $materi->id)}}"> Ubah</a></td>
-                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" href="{{route('materi.hapusmateri', $materi->id)}}"> Hapus</a></td>
+                                <td scope="row">{{$user->name}}</td>
+                                <td scope="row">{{$user->email}}</td>
+                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" href="{{route('datapengguna.hapus', $user->id)}}"> Hapus</a></td>
                             </tr>
                             @endforeach
                         </body>
                     </table>
-                    {{$materis->render()}}
                 </div>
             </div>
         </div>

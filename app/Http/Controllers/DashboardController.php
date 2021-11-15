@@ -42,10 +42,10 @@ class DashboardController extends Controller
         return view('user.testi');
     }
 
-    public function datapengguna()
+    /*public function datapengguna()
     {
         return view('admin.datapengguna');
-    }
+    }*/
 
     /*public function materis()
     {
