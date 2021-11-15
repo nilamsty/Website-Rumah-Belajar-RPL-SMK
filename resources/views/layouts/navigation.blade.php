@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto mt-5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto mt-3 px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-10">
             <div class="flex">
                 <!-- Navigation Links -->
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-book">
-                    <x-nav-link :href="route('dashboard.tambahmateri')" :active="request()->routeIs('dashboard.tambahmateri')">
+                    <x-nav-link :href="route('dashboard.manajemenmateri')" :active="request()->routeIs('dashboard.manajemenmateri')">
                         {{ __('Tambah Materi') }}
                     </x-nav-link>
                 </div>

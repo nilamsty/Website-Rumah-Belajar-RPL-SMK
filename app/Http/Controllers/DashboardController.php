@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Bab;
+use App\Models\Materi;
 
 class DashboardController extends Controller
 {
@@ -21,7 +23,8 @@ class DashboardController extends Controller
 
     public function materi()
     {
-        return view('user.materi');
+        $materis=Materi::inRandomOrder()->orderBy('id', 'DESC')->paginate(5);
+        return view('user.materi', compact('materis'));
     }
 
     public function ujikom()
@@ -44,10 +47,11 @@ class DashboardController extends Controller
         return view('admin.datapengguna');
     }
 
-    public function tambahmateri()
+    /*public function materis()
     {
-        return view('admin.tambahmateri');
-    }
+        $materis->Materi::inRandomOrder()->orderBy('id', 'DESC')->paginate(5);
+        return view('user.materi', compact('materis'));
+    }*/
 
     public function buatujian()
     {
