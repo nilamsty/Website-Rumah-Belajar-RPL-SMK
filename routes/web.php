@@ -32,7 +32,11 @@ Route::group(['middleware' => ['auth', 'role:user']], function()
     Route::get('/dashboard/materi', [App\Http\Controllers\DashboardController::class, 'materi'])->name('dashboard.materi');
     Route::get('/dashboard/ujikompetensi', [App\Http\Controllers\DashboardController::class, 'ujikom'])->name('dashboard.ujikom');     
     Route::get('/dashboard/grupdiskusi', [App\Http\Controllers\DashboardController::class, 'grupdis'])->name('dashboard.grupdis');
+    Route::get('/testimoni/tambahtesti', [App\Http\Controllers\TestimoniController::class, 'create'])->name('testimoni.tambahtesti');
+    Route::post('/testimoni/simpantesti', [App\Http\Controllers\TestimoniController::class, 'store'])->name('testimoni.simpantesti');
+    //Route::get('/testimoni/tampiltesti/{id}', [App\Http\Controllers\TestimoniController::class, 'show'])->name('testimoni.tampiltesti');
     Route::get('/dashboard/testimoni', [App\Http\Controllers\DashboardController::class, 'testi'])->name('dashboard.testi');
+    
 });
 
 //for admin
@@ -46,10 +50,15 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
     Route::get('/materi/ubahmateri/{id}', [App\Http\Controllers\MateriController::class, 'edit'])->name('materi.ubahmateri');
     Route::post('/materi/updatemateri/{id}', [App\Http\Controllers\MateriController::class, 'update'])->name('materi.updatemateri');
     Route::get('/materi/hapusmateri/{id}', [App\Http\Controllers\MateriController::class, 'destroy'])->name('materi.hapusmateri');
+    Route::get('/testimoni/datatesti', [App\Http\Controllers\TestimoniController::class, 'index'])->name('testimoni.datatesti');
+    Route::get('/testimoni/hapustestimoni/{id}', [App\Http\Controllers\TestimoniController::class, 'destroy'])->name('testimoni.hapustestimoni');
+    
+
     
 
     Route::get('/dashboard/buatujian', [App\Http\Controllers\DashboardController::class, 'buatujian'])->name('dashboard.buatujian');     
-    Route::get('/dashboard/datatesti', [App\Http\Controllers\DashboardController::class, 'datatesti'])->name('dashboard.datatesti');      
+    
+    //Route::get('/dashboard/datatesti', [App\Http\Controllers\DashboardController::class, 'datatesti'])->name('dashboard.datatesti');      
 
 
 });

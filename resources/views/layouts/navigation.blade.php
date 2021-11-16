@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-star-half-alt">
-                    <x-nav-link :href="route('dashboard.testi')" :active="request()->routeIs('dashboard.testi')">
+                    <x-nav-link :href="route('testimoni.tambahtesti')" :active="request()->routeIs('testimoni.tambahtesti')">
                         {{ __('Testimoni') }}
                     </x-nav-link>
                 </div>
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex fa fa-star-half-alt">
-                    <x-nav-link :href="route('dashboard.datatesti')" :active="request()->routeIs('dashboard.datatesti')">
+                    <x-nav-link :href="route('testimoni.datatesti')" :active="request()->routeIs('testimoni.datatesti')">
                         {{ __('Data Testimoni') }}
                     </x-nav-link>
                 </div>

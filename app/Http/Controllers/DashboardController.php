@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Bab;
 use App\Models\Materi;
+use App\Models\Testimoni;
 
 class DashboardController extends Controller
 {
@@ -39,7 +40,8 @@ class DashboardController extends Controller
 
     public function testi()
     {
-        return view('user.testi');
+        $testimonis=Testimoni::inRandomOrder()->orderBy('id', 'DESC')->get();
+        return view('user.testimoni.tampil', compact('testimonis'));
     }
 
     /*public function datapengguna()
@@ -58,9 +60,9 @@ class DashboardController extends Controller
         return view('admin.buatujian');
     }
 
-    public function datatesti()
+    /*public function datatesti()
     {
         return view('admin.datatesti');
-    }
+    }*/
 
 }

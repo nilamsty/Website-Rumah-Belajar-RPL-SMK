@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Bab;
-use App\Models\Materi;
+use App\Models\User;
+use App\Models\Testimoni;
 
-class MateriController extends Controller
+class TestimoniController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class MateriController extends Controller
      */
     public function index()
     {
-        $materis=Materi::orderBy('id', 'DESC')->paginate(5);
-        return view('admin.materi.index', compact('materis'));
+        $testimonis=Testimoni::orderBy('id', 'DESC')->get();
+        return view('admin.testimoni.index', compact('testimonis'));
     }
 
     /**
@@ -26,8 +26,8 @@ class MateriController extends Controller
      */
     public function create()
     {
-        $babs=Bab::get();
-        return view('admin.materi.tambah', compact('babs'));
+        $users=User::get();
+        return view('user.testimoni.tambah', compact('users'));
     }
 
     /**
@@ -38,12 +38,12 @@ class MateriController extends Controller
      */
     public function store(Request $request)
     {
-        $materis=Materi::create([
-            'bab_id'=>$request->bab,
-            'title'=>$request->title,
+        $testimonis=Testimoni::create([
+            'user_id'=>$request->user,
             'content'=>$request->content,
         ]);
-        return back()->with('success', 'Materi Berhasil Ditambahkan!');
+
+        return back()->with('success', 'Testimoni Berhasil Ditambahkan!');
     }
 
     /**
@@ -52,11 +52,11 @@ class MateriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
-        $materis=Materi::whereId($id)->first();
-        return view('admin.materi.tampil', compact('materis'));
-    }
+        $testimonis=Testimoni::whereId($id)->first();
+        return view('user.materi.tampil', compact('testimonis'));
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -64,12 +64,12 @@ class MateriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
-        $babs=Bab::get();
-        $materis=Materi::find($id);
-        return view ('admin.materi.ubah', compact('babs', 'materis'));
-    }
+        $users=User::get();
+        $testimonis=Testimoni::find($id);
+        return view ('user.materi.ubah', compact('users', 'testimonis'));
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -78,17 +78,16 @@ class MateriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /*public function update(Request $request, $id)
     {
-        $materis=Materi::whereId($id)->first();
-        $materis->update([
-            'bab_id'=>$request->bab,
-            'tittle'=>$request->tittle,
+        $testimonis=Testimoni::whereId($id)->first();
+        $testimonis->update([
+            'user_id'=>$request->name,
             'content'=>$request->content,
         ]);
 
-        return back()->with('success', 'Ubah Data Materi Berhasil!');
-    }
+        return back()->with('success', 'Ubah Data Testimoni Berhasil!');
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -98,7 +97,7 @@ class MateriController extends Controller
      */
     public function destroy($id)
     {
-        Materi::whereId($id)->delete();
-        return back()->with('success', 'Hapus Data Materi Berhasil!');
+        Testimoni::whereId($id)->delete();
+        return back()->with('success', 'Hapus Data Testimoni Berhasil!');
     }
 }
