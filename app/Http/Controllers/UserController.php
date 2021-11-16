@@ -12,9 +12,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users=User::all();
+        if($request->has('cari')){
+            $users=User::where('name', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
+            $users=User::all();
+        }
         return view('admin.data-pengguna.index')->with('users', $users);
     }
 
