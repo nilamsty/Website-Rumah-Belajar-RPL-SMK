@@ -41,7 +41,7 @@
                                 <td scope="row">{{$index+1}}</td>
                                 <td scope="row">{{$user->name}}</td>
                                 <td scope="row">{{$user->email}}</td>
-                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" href="{{route('datapengguna.hapus', $user->id)}}"> Hapus</a></td>
+                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" onClick="return confirm('Apakah Anda Yakin Menghapus Data Pengguna?')" href="{{route('datapengguna.hapus', $user->id)}}"> Hapus</a></td>
                             </tr>
                             @endforeach
                         </body>

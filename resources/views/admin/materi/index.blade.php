@@ -34,7 +34,7 @@
                                 <td scope="row">{{$materi->bab->name}}</td>
                                 <td scope="row">{{Str::limit($materi->content), 115}}</td>
                                 <td scope="row"><a class="btn btn-success fa fa-edit" href="{{route('materi.ubahmateri', $materi->id)}}"> Ubah</a></td>
-                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" href="{{route('materi.hapusmateri', $materi->id)}}"> Hapus</a></td>
+                                <td scope="row"><a class="btn btn-danger fa fa-trash-alt" onClick="return confirm('Apakah Anda Yakin Menghapus Data Materi?')" href="{{route('materi.hapusmateri', $materi->id)}}"> Hapus</a></td>
                             </tr>
                             @endforeach
                         </body>
