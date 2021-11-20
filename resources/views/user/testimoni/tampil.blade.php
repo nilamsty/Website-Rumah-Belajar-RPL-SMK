@@ -14,8 +14,7 @@
                     <div class="card text-dark-center bg-light" style="width: 55rem">
                         <div class="card-body">
                             <blockquote class="blockquote">
-                                <p class="mb-2">{{Str::limit($testi->content, 400)}}</p>
-                                <footer class="blockquotes-footer">~ Kata <cite tittle="Source Title">{{$testi->user->name}} ~</cite></footer>
+                                <p class="mb-1">{{Str::limit($testi->content, 400)}}</p>
                             </blockquote>
                         <p class="card-text text-right"><small class="text-muted">{{date('d M Y', strtotime($testi->created_at))}}</small></p>
                         </div>

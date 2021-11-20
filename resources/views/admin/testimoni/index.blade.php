@@ -28,13 +28,14 @@
                                 @foreach ($testimonis as $index=>$testi)
                                 <tr>
                                     <td scope="row">{{$index+1}}</td>
-                                    <td scope="row">{{$testi->user->name}}</td>
+                                    <td scope="row">{{$testi->name}}</td>
                                     <td scope="row">{{Str::limit($testi->content), 155}}</td>
                                     <td scope="row"><a class="btn btn-danger fa fa-trash-alt" onClick="return confirm('Apakah Anda Yakin Menghapus Data Testimoni?')" href="{{route('testimoni.hapustestimoni', $testi->id)}}"> Hapus</a></td>
                                 </tr>
                                 @endforeach
                             </body>
                         </table>
+                        
                     </div>
                 </div>
             </div>

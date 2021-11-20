@@ -15,7 +15,9 @@ class TestimoniController extends Controller
      */
     public function index()
     {
-        $testimonis=Testimoni::orderBy('id', 'DESC')->get();
+        $testimonis=Testimoni::join('users','users.id', '=', 'testimonis.user_id')->orderby('testimonis.id', 'DESC')->get();
+
+        //dd($testimonis);
         return view('admin.testimoni.index', compact('testimonis'));
     }
 

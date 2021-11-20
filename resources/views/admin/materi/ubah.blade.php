@@ -19,7 +19,7 @@
                         @csrf
                         <div class="form-group">
                             <label><strong>Bab</strong></label>
-                            <select class="form-control" name="bab">
+                            <select class="form-control" id="bab" name="bab">
                                 <option value="">Pilih Bab</option>
                                 @foreach ($babs as $bab)
                                     <option value="{{$bab->id}}" @if(old('bab', $materis->bab_id)==$bab->id) selected="selected" @endif>{{$bab->name}}</option>   
@@ -29,12 +29,12 @@
                         <br>
                         <div class="form-group">
                             <label><strong>Judul Materi</strong></label>
-                            <input type="text" class="form-control" name="title" value="{{old('title', $materis->title)}}">
+                            <input type="text" class="form-control" id="title" name="title" value="{{old('title', $materis->title)}}">
                         </div>
                         <br>
                         <div class="form-group">
                             <label><strong>Materi</strong></label>
-                            <textarea class="form-control" rows="4" name="content">{{old('content', $materis->content)}}</textarea>
+                            <textarea class="form-control" rows="8" id="summernote" name="content">{{old('content', $materis->content)}}</textarea>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Simpan</button>

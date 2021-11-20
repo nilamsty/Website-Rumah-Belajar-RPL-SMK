@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    buat uji kompetensi
+                    <h5>Buat Uji Kompetensi!</h5>
                 </div>
             </div>
         </div>

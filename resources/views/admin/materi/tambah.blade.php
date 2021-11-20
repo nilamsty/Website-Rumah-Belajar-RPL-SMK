@@ -19,7 +19,7 @@
                         @csrf
                         <div class="form-group">
                             <label><strong>Bab</strong></label>
-                            <select class="form-control" name="bab">
+                            <select class="form-control" id="bab" name="bab">
                                 <option value="">Pilih Bab</option>
                                 @foreach ($babs as $bab)
                                     <option value="{{$bab->id}}">{{$bab->name}}</option>   
@@ -29,12 +29,12 @@
                         <br>
                         <div class="form-group">
                             <label><strong>Judul Materi</strong></label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" id="title" name="title">
                         </div>
                         <br>
                         <div class="form-group">
                             <label><strong>Materi</strong></label>
-                            <textarea class="form-control" rows="4" name="content"></textarea>
+                            <textarea class="form-control" rows="8" id="summernote" name="content"></textarea>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Tambah</button>
